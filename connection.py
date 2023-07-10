@@ -1,14 +1,28 @@
 import telnetlib3
 import asyncio
 from getpass import getpass
+import logging
+
+logging.basicConfig(filename="connection.log", level=logging.DEBUG,
+                    format="%(asctime)s %(levelname)s %(name)s %(message)s")
+logger = logging.getLogger(__name__)
+
 
 async def main():
     # Telnet host and port
-    host = 'localhost'
-    port = 4212
+    host, port = '', 0
+
+    with open("config.ini", "r") as config:
+        configuration = config.readlines()
+        host, port = configuration[8].split("=")[1].replace(
+            "\n", ""), int(configuration[9].split("=")[1])
+        print(host, port)
 
     # Connect to the Telnet host
-    reader, writer = await telnetlib3.open_connection(host, port)
+    try:
+        reader, writer = await telnetlib3.open_connection(host, port)
+    except ConnectionRefusedError as CRE:
+        logger.error(CRE)
 
     # Read the password prompt
     print(await reader.readuntil(b"Password: "))
@@ -18,7 +32,7 @@ async def main():
     writer.write(password+"\n")
 
     # Send a command
-    command = 'play'
+    command = 'pause'
     writer.write(command+"\n")
 
     # Read the command output
