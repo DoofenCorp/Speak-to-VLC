@@ -18,8 +18,8 @@ except ValueError:
 key, token = get_password()
 configuration['host'] = host
 configuration['port'] = port
-configuration['key'] = str(key)
-configuration['token'] = str(token)
+configuration['key'] = str(key.decode('utf-8'))
+configuration['token'] = str(token.decode('utf-8'))
 
 with open("config.json", "w") as config:
     print("Setting host: {0}".format(host))

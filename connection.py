@@ -38,22 +38,26 @@ async def main():
     except ConnectionRefusedError as CRE:
         logger.error(CRE)
         return 0
+    #Login to interface
+
+    print(await reader.readuntil(b"Password:"))
+    writer.write(send_password(key, token)+"\n")
+    del key
+    del token
+    await reader.readuntil(b">")
 
     async def send_command():
-        command = input("Telnet> ")
+        command = input("VLC> ")
         if command == "exit":
             sys.exit(0)
-        buffer = await reader.readuntil()
+        writer.write(command + "\n")
+        buffer = await reader.readuntil(b">")
         buffer = buffer.decode("ascii")
         print(buffer)
-        if buffer == "Password: ":
-            writer.write(send_password(key, token)+"\n")
-            return
-        elif buffer == "Connection to host lost.":
+        if buffer == "Connection to host lost.":
             # Close the connection
             writer.close()
             sys.exit(0)
-        writer.write(command + "\n")
 
     while True:
         await send_command()
