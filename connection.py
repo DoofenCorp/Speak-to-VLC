@@ -1,7 +1,15 @@
+import sys
 import telnetlib3
 import asyncio
-from getpass import getpass
 import logging
+import json
+from cryptography.fernet import Fernet
+
+
+def send_password(key, token):
+    cipher = Fernet(key)
+    return cipher.decrypt(token).decode('utf-8')
+
 
 logging.basicConfig(filename="connection.log", level=logging.DEBUG,
                     format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -9,38 +17,47 @@ logger = logging.getLogger(__name__)
 
 
 async def main():
-    # Telnet host and port
-    host, port = '', 0
 
-    with open("config.ini", "r") as config:
-        configuration = config.readlines()
-        host, port = configuration[8].split("=")[1].replace(
-            "\n", ""), int(configuration[9].split("=")[1])
-        print(host, port)
+    try:
+        with open("config.json") as config:
+            try:
+                configuration = json.loads(config.read())
+                # Telnet host, port and password
+                host, port, key, token = configuration["host"], configuration[
+                    "port"], configuration['key'].encode("utf-8"), configuration['token'].encode("utf-8")
+            except json.JSONDecodeError as JDE:
+                logger.error(JDE)
+                return 0
+    except FileNotFoundError as FNFE:
+        logger.error(FNFE)
+        return 0
 
     # Connect to the Telnet host
     try:
         reader, writer = await telnetlib3.open_connection(host, port)
     except ConnectionRefusedError as CRE:
         logger.error(CRE)
+        return 0
 
-    # Read the password prompt
-    print(await reader.readuntil(b"Password: "))
+    async def send_command():
+        command = input("Telnet> ")
+        if command == "exit":
+            sys.exit(0)
+        buffer = await reader.readuntil()
+        buffer = buffer.decode("ascii")
+        print(buffer)
+        if buffer == "Password: ":
+            writer.write(send_password(key, token)+"\n")
+            return
+        elif buffer == "Connection to host lost.":
+            # Close the connection
+            writer.close()
+            sys.exit(0)
+        writer.write(command + "\n")
 
-    # Send the password
-    password = '1234'
-    writer.write(password+"\n")
+    while True:
+        await send_command()
 
-    # Send a command
-    command = 'pause'
-    writer.write(command+"\n")
-
-    # Read the command output
-    output = await reader.readuntil()
-    print(output.decode('ascii'))
-
-    # Close the connection
-    writer.close()
 
 # Run the main function
 asyncio.run(main())

@@ -1,0 +1,5 @@
+Configure the host and port in the config.json file.
+Set host as localhost for the same computer. Otherwise set the IP address of the remote host machine
+Default port is 4212. Modify for any other port accordingly. This is the same port number as visible in VLC Media Player Settings. (See below)
+For checking port: Open VLC → Click Tools on Menu Bar → Preferences → Show all settings (Bottom left) → Interfaces → Main interfaces → Check mark Telnet → Expand main interfaces → select Lua → Configure Lua Telnet's host, port and password
+Run password script to generate password hash
