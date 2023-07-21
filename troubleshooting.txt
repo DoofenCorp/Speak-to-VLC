@@ -1,6 +1,7 @@
 Check the "connection.log" file in the directory and see the relevant information below
 
-1. ConnectionRefusedError
+1. Connection Refused Error
+Prompt: ERROR __main__ [WinError 1225] The remote computer refused the network connection
 
 Possible cause(s): The IP Address of the host machine OR/AND port is incorrect OR/AND VLC Media Player is not running.
 
@@ -10,12 +11,14 @@ Fix:
 (iii) Additionally you can open config.json in text editor and verify the correct details
 ----------------------------------------------------------------
 2. File not found error
+Prompt: ERROR __main__ [Errno 2] No such file or directory: 'config.json'
 
 Possible cause: You executed 'connection.py' before 'setup.py' hence, config.json doesn't exist in the script directory.
 
 Fix: Run 'setup.py' and generate new config.json before running 'connection.py'
 ----------------------------------------------------------------
 3. JSONDecodeError
+Prompt: ERROR __main__ Expecting value: line 1 column 1 (char 0)
 
 Possible cause: The config.json file is empty.
 
