@@ -2,6 +2,7 @@ import json
 from getpass import getpass
 from cryptography.fernet import Fernet
 import base64
+import os
 
 def get_password():
     key = Fernet.generate_key()
@@ -28,3 +29,4 @@ with open("config.json", "w") as config:
     print("Setting host: {0}".format(host))
     print("Setting port: {0}".format(port))
     json.dump(configuration, config)
+    print("Written configuration file (config.json) to", os.getcwd())
