@@ -10,7 +10,10 @@ def get_password():
     return key, token
 
 configuration = {}
-host = input("Provide the hostname: ")
+
+host = input("Provide the hostname (default localhost): ")
+if host == "":
+    host = "localhost"
 try:
     port = int(input("Provide the port (default 4212): "))
 except ValueError:
