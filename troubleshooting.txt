@@ -10,7 +10,7 @@ Fix:
 (ii) Run 'setup.py' and generate new config.json
 (iii) Additionally you can open config.json in text editor and verify the correct details
 ----------------------------------------------------------------
-2. File not found error
+2. Configuration file not found error
 Prompt: ERROR __main__ [Errno 2] No such file or directory: 'config.json'
 
 Possible cause: You executed 'connection.py' before 'setup.py' hence, config.json doesn't exist in the script directory.
