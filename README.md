@@ -15,8 +15,8 @@ Upcoming:
 ## 1. Install all requirements:
 
 * Python 3.7+
-* telnetlib3 module
-* SpeechRecognition module
+* `telnetlib3` module
+* `SpeechRecognition` module
 1. Install Python 3 if not already installed.
 1. Then run `req.bat` (Windows) OR `req.sh` (*nix/MacOS) to install all requirements from requirements.txt 
 Note: Run the `req.bat` as Administrator on  Windows if you Python installed in `C:\Program Files\`. Similarly, try `sudo` mode for *nix/MacOS
