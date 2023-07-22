@@ -7,5 +7,5 @@ Current Features:
 
 Upcoming:
 * Speech recognition integration for voice control
-* Bug fix for "shutdown" command which works but asyncio's runtime error
+* Bug fix for "shutdown" command which works but raises asyncio's runtime error
 
