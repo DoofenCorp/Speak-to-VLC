@@ -1,13 +1,6 @@
 import json
-from getpass import getpass
-from cryptography.fernet import Fernet
 from os import getcwd
-
-def get_password():
-    key = Fernet.generate_key()
-    cipher = Fernet(key)
-    token = cipher.encrypt(getpass("Enter your password: ").encode("utf-8"))
-    return key, token
+from helpers import get_password
 
 configuration = {}
 

@@ -1,23 +1,15 @@
-import sys
 import telnetlib3
 import asyncio
 import logging
 import json
-from cryptography.fernet import Fernet
-
-
-def send_password(key, token):
-    cipher = Fernet(key)
-    return cipher.decrypt(token).decode('utf-8')
-
+from helpers import LoopBreakException
+from helpers import send_password
 
 logging.basicConfig(filename="connection.log", level=logging.DEBUG,
                     format="%(asctime)s %(levelname)s %(name)s %(message)s")
 logger = logging.getLogger(__name__)
 
-
 async def main():
-
     try:
         with open("config.json") as config:
             try:
@@ -48,8 +40,10 @@ async def main():
 
     async def send_command():
         command = input("VLC> ")
-        if command == "exit":
-            sys.exit(0)
+        if command in ("quit", "shutdown"):
+            writer.write(command + "\n")  
+            print(await (reader.readuntil()))
+            raise LoopBreakException("Exit command sent to VLC. Closing connection.")
         writer.write(command + "\n")
         buffer = await reader.readuntil(b">")
         buffer = buffer.decode("ascii")
@@ -57,11 +51,20 @@ async def main():
         if buffer == "Connection to host lost.":
             # Close the connection
             writer.close()
-            sys.exit(0)
+            raise LoopBreakException("Unexpected termination of VLC. Connection lost. Exiting...")
 
     while True:
-        await send_command()
+        try:
+            await send_command()
+        except LoopBreakException:
+            break
 
 
 # Run the main function
-asyncio.run(main())
+if __name__=="__main__":
+    try:
+        asyncio.run(main())
+    except RuntimeError as RE:
+        if "Event loop is closed" not in str(RE):
+            print("Raising exception from except statement")
+            raise RE
