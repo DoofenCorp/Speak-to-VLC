@@ -8,7 +8,7 @@ Current Features:
 
 Upcoming:
 * Speech recognition integration for voice control (Probably within this week)
-* Bug fix for "shutdown" command which works but raises asyncio's runtime error (within couple days)
+* ~Bug fix for "shutdown" command which works but raises asyncio's runtime error (within couple days)~ Fixed on 23 July 2023.
 
 # SETUP GUIDE:
 
