@@ -19,7 +19,7 @@ Upcoming:
 * `SpeechRecognition` module
 1. Install Python 3 if not already installed.
 1. Then run `req.bat` (Windows) OR `req.sh` (*nix/MacOS) to install all requirements from requirements.txt 
-Note: Run the `req.bat` as Administrator on  Windows if you Python installed in `C:\Program Files\`. Similarly, try `sudo` mode for *nix/MacOS
+* Note: Run the `req.bat` as Administrator on  Windows if you have Python installed in `C:\Program Files\`. Similarly, try `sudo` mode for *nix/MacOS
 
 ##    2. Configure VLC Media Player to use telnet as an additional main interface:
 
