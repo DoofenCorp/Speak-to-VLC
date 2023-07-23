@@ -9,6 +9,7 @@ logging.basicConfig(filename="connection.log", level=logging.DEBUG,
                     format="%(asctime)s %(levelname)s %(name)s %(message)s")
 logger = logging.getLogger(__name__)
 
+
 async def main():
     try:
         with open("config.json") as config:
@@ -30,7 +31,7 @@ async def main():
     except ConnectionRefusedError as CRE:
         logger.error(CRE)
         return 0
-    #Login to interface
+    # Login to interface
 
     print(await reader.readuntil(b"Password:"))
     writer.write(send_password(key, token)+"\n")
@@ -38,30 +39,50 @@ async def main():
     del token
     await reader.readuntil(b">")
 
-    async def send_command():
+    async def Send_command_Get_output():
         command = input("VLC> ")
-        if command in ("quit", "shutdown"):
-            writer.write(command + "\n")  
+        if command == "quit":
+            writer.write(command + "\n")
             print(await (reader.readuntil()))
-            raise LoopBreakException("Exit command sent to VLC. Closing connection.")
+            writer.close()
+            raise LoopBreakException(
+                "Quit command sent to VLC. Closing connection.")
+        elif command == "shutdown":
+            writer.write(command + "\n")
+            try:
+                print(await (reader.readuntil(b"Shutting down.")))
+            except asyncio.IncompleteReadError as e:
+                print("Try failed. Doing partial read")
+                print(e.partial)
+            finally:
+                writer.close()
+                raise LoopBreakException("Shutdown completed")
         writer.write(command + "\n")
-        buffer = await reader.readuntil(b">")
-        buffer = buffer.decode("ascii")
+        try:
+            buffer = await reader.readuntil(b">")
+        except asyncio.IncompleteReadError as e:
+            buffer = e.partial
+        buffer = buffer.decode("utf-8")
         print(buffer)
-        if buffer == "Connection to host lost.":
+        if writer.transport.is_closing():
             # Close the connection
             writer.close()
-            raise LoopBreakException("Unexpected termination of VLC. Connection lost. Exiting...")
+            raise LoopBreakException(
+                "Unexpected termination of VLC. Connection lost. Exiting...")
 
     while True:
         try:
-            await send_command()
-        except LoopBreakException:
+            if writer.transport.is_closing():
+                break
+            else:
+                await Send_command_Get_output()
+        except LoopBreakException as LBE:
+            print(LBE)
             break
 
 
 # Run the main function
-if __name__=="__main__":
+if __name__ == "__main__":
     try:
         asyncio.run(main())
     except RuntimeError as RE:
