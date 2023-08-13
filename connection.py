@@ -2,15 +2,16 @@ import telnetlib3
 import asyncio
 import logging
 import json
-from helpers import LoopBreakException
-from helpers import send_password
+from threading import Thread
+import time
+from helpers import LoopBreakException, send_password, speak
 
 logging.basicConfig(filename="connection.log", level=logging.DEBUG,
                     format="%(asctime)s %(levelname)s %(name)s %(message)s")
 logger = logging.getLogger(__name__)
 
-
-async def main():
+async def connection():
+    global reader, writer
     try:
         with open("config.json") as config:
             try:
@@ -31,16 +32,21 @@ async def main():
     except ConnectionRefusedError as CRE:
         logger.error(CRE)
         return 0
+    
     # Login to interface
 
     print(await reader.readuntil(b"Password:"))
     writer.write(send_password(key, token)+"\n")
+
     del key
     del token
     await reader.readuntil(b">")
 
-    async def Send_command_Get_output():
-        command = input("VLC> ")
+    async def Send_command_Get_output(command):
+        if "screen" in  command:
+            command = "fullscreen"
+        if "quit" in command:
+            command = "quit"
         if command == "quit":
             writer.write(command + "\n")
             print(await (reader.readuntil()))
@@ -62,30 +68,27 @@ async def main():
             buffer = await reader.readuntil(b">")
         except asyncio.IncompleteReadError as e:
             buffer = e.partial
-        buffer = buffer.decode("utf-8")
+        buffer = str(buffer.decode("utf-8"))
         print(buffer)
-        if writer.transport.is_closing():
-            # Close the connection
-            writer.close()
-            raise LoopBreakException(
-                "Unexpected termination of VLC. Connection lost. Exiting...")
 
-    while True:
+    while not writer.is_closing():
         try:
-            if writer.transport.is_closing():
-                break
-            else:
-                await Send_command_Get_output()
+            # command = input("VLC> ").lower()
+            command = speak()
+            await Send_command_Get_output(command)
         except LoopBreakException as LBE:
             print(LBE)
             break
-
+    else:
+        print("Remote host terminated unexpectedly.")
 
 # Run the main function
 if __name__ == "__main__":
     try:
-        asyncio.run(main())
+        asyncio.run(connection())
     except RuntimeError as RE:
         if "Event loop is closed" not in str(RE):
             print("Raising exception from except statement")
             raise RE
+    except LoopBreakException as LBE:
+        print(LBE)

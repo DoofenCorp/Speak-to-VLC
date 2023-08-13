@@ -16,3 +16,16 @@ def get_password():
 def send_password(key, token):
     cipher = Fernet(key)
     return cipher.decrypt(token).decode('utf-8')
+
+def speak():
+    import speech_recognition as sr
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("VLC>", end = " ")
+        spoken = recognizer.listen(source)
+    try:
+        command = recognizer.recognize_google(spoken)
+        print(command)
+    except:
+        return "Didn't quite get what you just said."
+    return command
