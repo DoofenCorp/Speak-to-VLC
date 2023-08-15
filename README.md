@@ -8,7 +8,7 @@ Current Features:
 
 * Note: With this Alpha implementation I have removed (not really, just commented it) the previous manual telnet client functionality, this now works entirely on voice commands. If needed you can uncomment line 76 in `connection.py` and remove/comment line 77.
 
-* Tested on Python 3.10 (Should work with Python 3.5+) on Windows 10 Pro 22H2
+* Tested on Python 3.10 (Should work with Python 3.8+) on Windows 10 Pro 22H2
 
 Upcoming:
 * Improved speech recognition after rigorous testing and possible implementation of offline recognition
