@@ -1,2 +1,3 @@
 telnetlib3
 SpeechRecognition
+pyaudio

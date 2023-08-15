@@ -1,4 +1,4 @@
-# Work in progress.
+# Constantly under development
 Keep checking for functionality additions. If any issues are discovered then kindly post them in issues.
 
 Current Features:
@@ -13,7 +13,7 @@ Current Features:
 Upcoming:
 * Improved speech recognition after rigorous testing and possible implementation of offline recognition
 * Task scheduling capability integrated into the setup to automatically launch the script with VLC. (Focused for Windows machines)
-* ~Speech recognition integration for voice control (Probably within this week)~ Implemented as Alpha on 13 August 2023.
+* ~Speech recognition integration for voice control (Probably within this week)~ Implemented in v1.0.0-alpha on 13 August 2023.
 * ~Bug fix for "shutdown" command which works but raises asyncio's runtime error (within couple days)~ Fixed on 23 July 2023.
 
 # SETUP GUIDE:
@@ -21,10 +21,11 @@ Upcoming:
 ## 1. Install all requirements:
 
 * Internet connectivity for speech recognition
-* Python 3.7+
+* Python 3.8+
 * `telnetlib3` module
 * `SpeechRecognition` module
-1. Install Python 3 if not already installed.
+* `pyaudio` module (install manually for debian with `sudo apt-get install python-pyaudio python3-pyaudio` and redhat with  `sudo yum install python-pyaudio python3-pyaudio`)
+1. Install Python >=3.8 if not already installed.
 1. Then run `req.bat` (Windows) OR `req.sh` (*nix/MacOS) to install all requirements from requirements.txt 
 * Note: Run the `req.bat` as Administrator on  Windows if you have Python installed in `C:\Program Files\`. Similarly, try `sudo` mode for *nix/MacOS
 
