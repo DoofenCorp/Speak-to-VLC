@@ -24,7 +24,18 @@ Upcoming:
 * Python 3.8+
 * `telnetlib3` module
 * `SpeechRecognition` module
-* `pyaudio` module (install manually for debian with `sudo apt-get install python-pyaudio python3-pyaudio` and redhat with  `sudo yum install python-pyaudio python3-pyaudio`)
+* `pyaudio` module
+    * Windows: It'll install automatically with step 2.
+    * Debian/Ubuntu: 
+        1. `sudo apt-get install python-pyaudio python3-pyaudio` 
+        1. `sudo apt-get install -y portaudio19-dev`
+    * Redhat:
+        1. `sudo dnf install portaudio-devel redhat-rpm-config`
+        1. `sudo pip3 install pyaudio`
+            * If you encounter any error then try: `sudo dnf install python-pyaudio`
+    * MacOS: 
+        1. `brew install portaudio`
+        2. `pip3 install pyaudio`
 1. Install Python >=3.8 if not already installed.
 1. Then run `req.bat` (Windows) OR `req.sh` (*nix/MacOS) to install all requirements from requirements.txt 
 * Note: Run the `req.bat` as Administrator on  Windows if you have Python installed in `C:\Program Files\`. Similarly, try `sudo` mode for *nix/MacOS
@@ -59,7 +70,22 @@ Upcoming:
 * You'll see the `VLC>` prompt to issue commands. 
 (List of commands available in `commands.txt`)
 
+Voice commands:
+
+`play` - To play media
+`pause` - To pause playback
+`stop` - To stop playback
+`fullscreen` - Enter/Exit fullscreen
+`shutdown` - Exit VLC
+`increase volume` - Increase volume by 10%
+`decrease volume` - Decrease volume by 10%
+`stop listening` - Turns off voice command
+`faster` - Faster playback by 0.5x
+`slower` - Slower playback by 0.5x
+`normal` - Normal playback
+
+Other simple commands listed in commands.txt also work. Complex to speak commands like `atrack` (for changing audio track) will be broken down into simple commands to implement their functionality in upcoming releases.
 
 # Troubleshooting
 
-Script is under continuous development and prone to problems. Common possible issues and fixes are listed in `troubleshooting.txt`
+Application is under continuous development and prone to problems. Common possible issues and fixes are listed in `troubleshooting.txt`
