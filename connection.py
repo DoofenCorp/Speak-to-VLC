@@ -45,10 +45,13 @@ async def connection():
     async def Send_command_Get_output(command):
         if "screen" in  command:
             command = "fullscreen"
-        if "quit" in command:
-            command = "quit"
-        if command == "quit":
-            writer.write(command + "\n")
+        if "volume" in command:
+            if "increase" in command:
+                command = "volup 2"
+            elif "decrease" in command:
+                command = "voldown 2"
+        if command == "stop listening":
+            writer.write("quit" + "\n")
             print(await (reader.readuntil()))
             writer.close()
             raise LoopBreakException(
