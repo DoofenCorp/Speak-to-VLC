@@ -1,3 +1,4 @@
+cryptography
 telnetlib3
 SpeechRecognition
 pyaudio
