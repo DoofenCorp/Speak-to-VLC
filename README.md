@@ -1,16 +1,16 @@
 # Constantly under development
 Keep checking for functionality additions. If any issues are discovered then kindly post them in issues.
 
-Current Features:
+### Current Features:
 * Connection with VLC
 * Remote commands fully functional
 * Speech Recognition implemented in Alpha mode. Lot of improvements and testing needed which would be done in coming days. (13 August 2023). This is a very young alpha release so kindly be patient with it as it may or may not work as expected adhering to the environment (An example is that you may have to speak few times).
 
-* Note: With this Alpha implementation I have removed (not really, just commented it) the previous manual telnet client functionality, this now works entirely on voice commands. If needed you can uncomment line 76 in `connection.py` and remove/comment line 77.
+* Note: With this Alpha implementation I have removed (not really, just commented it) the previous manual telnet client functionality, this now works entirely on voice commands. If needed you can uncomment line 77 in `connection.py` and remove/comment line 78.
 
 * Tested on Python 3.10 (Should work with Python 3.8+) on Windows 10 Pro 22H2
 
-Upcoming:
+### Upcoming:
 * Improved speech recognition after rigorous testing and possible implementation of offline recognition
 * Task scheduling capability integrated into the setup to automatically launch the script with VLC. (Focused for Windows machines)
 * ~Speech recognition integration for voice control (Probably within this week)~ Implemented in v1.0.0-alpha on 13 August 2023.
