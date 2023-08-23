@@ -2,8 +2,6 @@ import telnetlib3
 import asyncio
 import logging
 import json
-from threading import Thread
-import time
 from helpers import LoopBreakException, send_password, speak
 
 logging.basicConfig(filename="connection.log", level=logging.DEBUG,
