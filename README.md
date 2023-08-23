@@ -19,6 +19,7 @@ Upcoming:
 # SETUP GUIDE:
 
 Download the latest release from [Releases](https://github.com/DoofenCorp/Speak-to-VLC/releases)
+
 Current latest release: v1.0.1-alpha
 
 ## 1. Install all requirements:
