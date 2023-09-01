@@ -61,6 +61,7 @@ Current latest release: v1.0.1-alpha
     * Port: `4212` is default, you can leave it as is or configure any other port if required
     * Password: Set your password
 * Click on Save
+* Restart VLC Media Player
 
 ## 3. Generate configuration file to establish connection
 
