@@ -48,32 +48,32 @@ Current latest release: v1.0.1-alpha
 
 ##    2. Configure VLC Media Player to use telnet as an additional main interface:
 
-* Open VLC Media Player
-* Click Tools on Menu Bar
-* Click on Preferences
-* On the bottom left of popup window, under 'show settings' click on All
-* In the left menu expand 'Interfaces' and click on Main Interfaces
-* IMPORTANT: In main interfaces, checkmark on 'Telnet'
-* Expand 'Main Interfaces' on the left pane and click on 'Lua'
-* On the right pane configure 'Lua Telnet'
-    * Lua Interface: `dummy`
-    * Host: `localhost` or `127.0.0.1` for same computer or set remote IP
-    * Port: `4212` is default, you can leave it as is or configure any other port if required
-    * Password: Set your password
-* Click on Save
-* Restart VLC Media Player
+1. Open VLC Media Player
+1. Click Tools on Menu Bar
+1. Click on Preferences
+1. On the bottom left of popup window, under 'show settings' click on All
+1. In the left menu expand 'Interfaces' and click on Main Interfaces
+1. IMPORTANT: In main interfaces, checkmark on 'Telnet'
+1. Expand 'Main Interfaces' on the left pane and click on 'Lua'
+1. On the right pane configure 'Lua Telnet'
+    1. Lua Interface: `dummy`
+    1. Host: `localhost` or `127.0.0.1` for same computer or set remote IP
+    1. Port: `4212` is default, you can leave it as is or configure any other port if required
+    1. Password: Set your password
+1. Click on Save
+1. Restart VLC Media Player
 
 ## 3. Generate configuration file to establish connection
 
-* Go to scripts directory
-* Run `setup.py`
-* Set host, port and password which were set in VLC media player in previous step
-* `config.json` will be generated
+1. Go to scripts directory
+1. Run `setup.py`
+1. Set host, port and password which were set in VLC media player in previous step
+1. `config.json` will be generated
 
 ## 4. Connect Python to VLC
 
-* Launch VLC media player or play some media in VLC
-* Run `connection.py`
+1. Launch VLC media player or play some media in VLC
+1. Run `connection.py`
 * You'll see the `VLC>` prompt to issue commands. 
 (List of commands available in `commands.txt`)
 
