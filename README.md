@@ -25,7 +25,7 @@ Current latest release: v1.0.1-alpha
 
 ## 1. Install all requirements:
 
-1. Install Python >=3.8 if not already installed.
+1. Install Python >= 3.8 if not already installed. **IMPORTANT:** Choose to install pip alongwith the installation.
 1. Then run `req.bat` (Windows) OR `req.sh` (*nix/MacOS) to install all requirements from requirements.txt 
 * Note: Run the `req.bat` as Administrator on  Windows if you have Python installed in `C:\Program Files\`. Similarly, try `sudo` mode for *nix/MacOS
 * Internet connectivity for speech recognition
@@ -48,12 +48,31 @@ Current latest release: v1.0.1-alpha
 
 ##    2. Configure VLC Media Player to use telnet as an additional main interface:
 
+### Windows and *Nix systems
+
 1. Open VLC Media Player
 1. Click Tools on Menu Bar
 1. Click on Preferences
 1. On the bottom left of popup window, under 'show settings' click on All
 1. In the left menu expand 'Interfaces' and click on Main Interfaces
 1. IMPORTANT: In main interfaces, checkmark on 'Telnet'
+1. Expand 'Main Interfaces' on the left pane and click on 'Lua'
+1. On the right pane configure 'Lua Telnet'
+    1. Lua Interface: `dummy`
+    1. Host: `localhost` or `127.0.0.1` for same computer or set remote IP
+    1. Port: `4212` is default, you can leave it as is or configure any other port if required
+    1. Password: Set your password
+1. Click on Save
+1. Restart VLC Media Player
+
+### MacOS
+
+1. Open VLC Media Player
+1. Click on VLC Media Player on menu bar to open the context menu
+1. Click on settings
+1. On the bottom left of popup window click on "Show All"
+1. In the left menu expand 'Interface' and click on Main Interfaces
+1. **IMPORTANT:** In main interfaces, checkmark on 'Telnet'
 1. Expand 'Main Interfaces' on the left pane and click on 'Lua'
 1. On the right pane configure 'Lua Telnet'
     1. Lua Interface: `dummy`
