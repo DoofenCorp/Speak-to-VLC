@@ -6,7 +6,7 @@ Keep checking for functionality additions. If any issues are discovered then kin
 * Remote commands fully functional
 * Speech Recognition implemented in Alpha mode. Lot of improvements and testing needed which would be done in coming days. (13 August 2023). This is a very young alpha release so kindly be patient with it as it may or may not work as expected adhering to the environment (An example is that you may have to speak few times).
 
-* Note: With this Alpha implementation I have removed (not really, just commented it) the previous manual telnet client functionality, this now works entirely on voice commands. If needed you can uncomment line 77 in `connection.py` and remove/comment line 78.
+* Note: With this Alpha implementation I have removed (not really, just commented it) the previous manual telnet client functionality, this now works entirely on voice commands. If needed you can uncomment line 77 in `speaktovlc.py` and remove/comment line 78.
 
 * Tested on Python 3.10 (Should work with Python 3.8+) on Windows 10 Pro 22H2
 * Tested on Python 3.8.5 on Ubuntu 20.04 LTS
@@ -26,8 +26,9 @@ Current latest release: v1.0.1-alpha
 ## 1. Install all requirements:
 
 1. Install Python >= 3.8 if not already installed. **IMPORTANT:** Choose to install pip alongwith the installation.
-1. Then run `req.bat` (Windows) OR `req.sh` (*nix/MacOS) to install all requirements from requirements.txt 
-* Note: Run the `req.bat` as Administrator on  Windows if you have Python installed in `C:\Program Files\`. Similarly, try `sudo` mode for *nix/MacOS
+1. * **Windows:** Double click to run `req.bat`
+   * **Linux/MacOS:** Open terminal in current directory and type `chmod u+x req.sh` then `./req.sh` to install all requirements from requirements.txt 
+* Note: Run the `req.bat` as Administrator on Windows if you have Python installed in `C:\Program Files\`. Similarly, try `sudo` mode for *nix/MacOS
 * Internet connectivity for speech recognition
 * Python 3.8+
 * `cryptography` library
@@ -68,8 +69,7 @@ Current latest release: v1.0.1-alpha
 ### MacOS
 
 1. Open VLC Media Player
-1. Click on VLC Media Player on menu bar to open the context menu
-1. Click on settings
+1. Click on VLC Media Player on menu bar to open the context menu and click on settings **OR** Press `Command + ,` 
 1. On the bottom left of popup window click on "Show All"
 1. In the left menu expand 'Interface' and click on Main Interfaces
 1. **IMPORTANT:** In main interfaces, checkmark on 'Telnet'
@@ -92,7 +92,7 @@ Current latest release: v1.0.1-alpha
 ## 4. Connect Python to VLC
 
 1. Launch VLC media player or play some media in VLC
-1. Run `connection.py`
+1. Run `speaktovlc.py`
 * You'll see the `VLC>` prompt to issue commands. 
 (List of commands available in `commands.txt`)
 
