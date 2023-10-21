@@ -41,6 +41,9 @@ async def connection():
     await reader.readuntil(b">")
 
     async def Send_command_Get_output(command):
+        # Secondary handler for pause because it is observed that it's not easily recognized during voice recognition
+        if command == "hold":
+            command = "pause"
         if "screen" in  command:
             command = "fullscreen"
         if "volume" in command:
