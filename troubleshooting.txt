@@ -1,3 +1,9 @@
+Additional resource: https://pypi.org/project/SpeechRecognition/#:~:text=install%20openai.-,Troubleshooting,-The%20recognizer%20tries
+
+This might address some errors you could encounter which aren't mentioned below
+
+-------------------------------------------------------------------------------------------
+
 Check the "connection.log" file in the directory and see the relevant information below
 
 1. Connection Refused Error
@@ -23,3 +29,9 @@ Prompt: ERROR __main__ Expecting value: line 1 column 1 (char 0)
 Possible cause: The config.json file is empty.
 
 Fix: Run 'setup.py' and generate new config.json with correct details. Additionally, you can verify using a text editor that correct details are saved.
+
+
+Possible MacOS installation issues:
+
+1. When running req.sh there is an error message saying "pip3 command not found".
+This indicates that pip3 is not installed with Python. 

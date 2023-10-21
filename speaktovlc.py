@@ -14,9 +14,9 @@ async def connection():
         with open("config.json") as config:
             try:
                 configuration = json.loads(config.read())
-                # Telnet host, port and password
-                host, port, key, token = configuration["host"], configuration[
-                    "port"], configuration['key'].encode("utf-8"), configuration['token'].encode("utf-8")
+                # Telnet host, port and password with noise preference
+                host, port, noise, key, token = configuration["host"],configuration["port"],configuration["noise"],configuration['key'].encode("utf-8"), configuration['token'].encode("utf-8")
+                noise = True if noise == "true" else False
             except json.JSONDecodeError as JDE:
                 logger.error(JDE)
                 return 0
@@ -41,6 +41,9 @@ async def connection():
     await reader.readuntil(b">")
 
     async def Send_command_Get_output(command):
+        # Secondary handler for pause because it is observed that it's not easily recognized during voice recognition
+        if command == "hold":
+            command = "pause"
         if "screen" in  command:
             command = "fullscreen"
         if "volume" in command:
@@ -75,7 +78,7 @@ async def connection():
     while not writer.is_closing():
         try:
             # command = input("VLC> ").lower()
-            command = speak()
+            command = speak(noise = noise)
             await Send_command_Get_output(command)
         except LoopBreakException as LBE:
             print(LBE)

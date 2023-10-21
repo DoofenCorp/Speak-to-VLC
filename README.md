@@ -1,6 +1,10 @@
 # Constantly evolving
 Keep checking for functionality additions. If any issues are discovered then kindly post them in issues.
 
+# Changes in this release v1.0.2-alpha:
+* You can now say "hold" as an alternative to "pause" because it was observed that pause was not recognized properly by the listener during playbacks.
+* Added support for noise adjustment. `setup.py` will now ask for your preference to turn noise adjustments on/off.
+
 ### Current Features:
 * Connection with VLC
 * Remote commands fully functional
@@ -25,7 +29,7 @@ Current latest release: v1.0.1-alpha
 
 ## 1. Install all requirements:
 
-1. Install Python >= 3.8 if not already installed. **IMPORTANT:** Choose to install pip alongwith the installation.
+1. Install Python >= 3.8 if not already installed. **IMPORTANT:** Choose to install pip along with the installation.
 1. * **Windows:** Double click to run `req.bat`
    * **Linux/MacOS:** Open terminal in current directory and type `chmod u+x req.sh` then `./req.sh` to install all requirements from requirements.txt 
 * Note: Run the `req.bat` as Administrator on Windows if you have Python installed in `C:\Program Files\`. Similarly, try `sudo` mode for *nix/MacOS
@@ -100,11 +104,11 @@ Current latest release: v1.0.1-alpha
 
 `play` - To play media
 
-`pause` - To pause playback
+`pause`/`hold` - To pause playback
 
 `stop` - To stop playback
 
-`fullscreen` - Enter/Exit fullscreen
+`fullscreen` - Enter/Exit full screen
 
 `shutdown` - Exit VLC
 
