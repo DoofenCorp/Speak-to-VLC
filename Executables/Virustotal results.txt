@@ -1,0 +1,7 @@
+Setup.exe: https://www.virustotal.com/gui/file/e45d14d2d81d30dce08d02c3061b159bffc29e44fa949d7e71817fc9dd545d02
+
+SpeakToVLC.exe: https://www.virustotal.com/gui/file/3baf9a360ed1fd9df34fff83f138855d9399aea00cffb4640beb797ae15348c6
+
+Setup (Linux): https://www.virustotal.com/gui/file/59b169684e86bfab26a52c5151883cf5b2c76fc6e20c3ef4016f28c15670f130
+
+SpeakToVLC (Linux): https://www.virustotal.com/gui/file/174ed1610501cafcd66ad4187f2f1629f8d9665cb73363644a1d3859f29cb52d
