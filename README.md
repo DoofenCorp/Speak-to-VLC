@@ -75,10 +75,10 @@ Current latest release: v1.0
 2. Double click to run `Setup.exe` (Microsoft Defender may block this file because it generates a simple plain text configuration file which the AI engine understands to be some malicious remote scripts but in real is only the configuration for your application to use). If blocked by Microsoft Defender then you need to make an exclusion for `Setup.exe` in Microsoft Defender. It's a false positive. [VirusTotal scan results](https://www.virustotal.com/gui/file/e45d14d2d81d30dce08d02c3061b159bffc29e44fa949d7e71817fc9dd545d02)
 
 3. Go through the setup process:
-    * Host: Set host or leave empty for default
-    * Port: Set port or leave empty for default
-    * Noise adjustment: Set your noise adjustment preference during voice command or leave empty for default
-    * Password: Set your VLC Telnet interface password that you set in the above section
+    * **Host:** Set host or leave empty for default
+    * **Port:** Set port or leave empty for default
+    * **Noise adjustment:** Set your noise adjustment preference during voice command or leave empty for default
+    * **Password:** Set your VLC Telnet interface password that you set in the above section
     * You'll get a `config.json` file in the same folder where you ran Setup from. This file contains the connection information for the voice command and VLC. It should always be in the same place as `SpeakToVLC.exe`.
 
 ![Windows2](Instructions/Windows2.png)
@@ -94,15 +94,15 @@ Current latest release: v1.0
 2. Right click in the folder and `Open Terminal`.
 3. Type `./Setup` and press <kbd>Enter</kbd>. [VirusTotal scan results](https://www.virustotal.com/gui/file/59b169684e86bfab26a52c5151883cf5b2c76fc6e20c3ef4016f28c15670f130)
 4. Go through the setup process:
-    * Host: Set host or leave empty for default
-    * Port: Set port or leave empty for default
-    * Noise adjustment: Set your noise adjustment preference during voice command or leave empty for default
-    * Password: Set your VLC Telnet interface password that you set in the above section
+    * **Host:** Set host or leave empty for default
+    * **Port:** Set port or leave empty for default
+    * **Noise adjustment:** Set your noise adjustment preference during voice command or leave empty for default
+    * **Password:** Set your VLC Telnet interface password that you set in the above section
     * You'll get a `config.json` file in the same folder where you ran Setup from. This file contains the connection information for the voice command and VLC. It should always be in the same place as `SpeakToVLC.exe`.
 5. Play your favorite movie in VLC
 6. Type `./SpeakToVLC` in the terminal and press <kbd>Enter</kbd>. [VirusTotal scan results](https://www.virustotal.com/gui/file/174ed1610501cafcd66ad4187f2f1629f8d9665cb73363644a1d3859f29cb52d)
 7. Enjoy ^_____^
-8. If any errors are encountered then refer to troubleshooting.txt or create an [issue](https://github.com/DoofenCorp/Speak-to-VLC/issues)
+8. If any errors are encountered then refer to `troubleshooting.txt` or create an [issue](https://github.com/DoofenCorp/Speak-to-VLC/issues)
 
 # OR Setup via Source (All platforms):
 
