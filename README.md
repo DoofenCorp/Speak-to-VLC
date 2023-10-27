@@ -31,11 +31,15 @@ Current latest release: v1.0
 #### Windows and *Nix systems
 
 1. Open VLC Media Player
+![VLC1](Instructions/VLC1.png)
 1. Click Tools on Menu Bar
 1. Click on Preferences
+![VLC2&3](Instructions/VLC2&3.png)
 1. On the bottom left of popup window, under 'show settings' click on All
+![VLC4](Instructions/VLC4.png)
 1. In the left menu expand 'Interfaces' and click on Main Interfaces
 1. IMPORTANT: In main interfaces, checkmark on 'Telnet'
+![VLC5&6](Instructions/VLC5&6.png)
 1. Expand 'Main Interfaces' on the left pane and click on 'Lua'
 1. On the right pane configure 'Lua Telnet'
     1. Lua Interface: `dummy`
@@ -43,6 +47,7 @@ Current latest release: v1.0
     1. Port: `4212` is default, you can leave it as is or configure any other port if required
     1. Password: Set your password
 1. Click on Save
+![VLC7&8&9](Instructions/VLC7&8&9.png)
 1. Restart VLC Media Player
 
 #### MacOS
@@ -66,6 +71,7 @@ Current latest release: v1.0
 ### Microsoft Windows:
 
 1. Put the `Setup.exe` and `SpeakToVLC.exe` files in your movies directory for easy access to run them while watching movies.
+![Windows1](Instructions/Windows1.png)
 2. Double click to run `Setup.exe` (Microsoft Defender may block this file because it generates a simple plain text configuration file which the AI engine understands to be some malicious remote scripts but in real is only the configuration for your application to use). If blocked by Microsoft Defender then you need to make an exclusion for `Setup.exe` in Microsoft Defender. It's a false positive. [VirusTotal scan results](https://www.virustotal.com/gui/file/e45d14d2d81d30dce08d02c3061b159bffc29e44fa949d7e71817fc9dd545d02)
 
 3. Go through the setup process:
@@ -75,9 +81,13 @@ Current latest release: v1.0
     * Password: Set your VLC Telnet interface password that you set in the above section
     * You'll get a `config.json` file in the same folder where you ran Setup from. This file contains the connection information for the voice command and VLC. It should always be in the same place as `SpeakToVLC.exe`.
 
+![Windows2](Instructions/Windows2.png)
+
 4. Play your favorite movie in VLC
 5. Double-click to run `SpeakToVLC.exe`. [VirusTotal scan results](https://www.virustotal.com/gui/file/3baf9a360ed1fd9df34fff83f138855d9399aea00cffb4640beb797ae15348c6)
+![Windows2](Instructions/Windows5.png)
 6. Enjoy ^_____^
+7. If any errors are encountered then refer to troubleshooting.txt or create an (issue)[https://github.com/DoofenCorp/Speak-to-VLC/issues]
 
 ### Linux:
 1. Put the `Setup` and `SpeakToVLC` files in your movies directory for easy access to run them while watching movies.
@@ -92,6 +102,7 @@ Current latest release: v1.0
 5. Play your favorite movie in VLC
 6. Type `./SpeakToVLC` in the terminal and press <kbd>Enter</kbd>. [VirusTotal scan results](https://www.virustotal.com/gui/file/174ed1610501cafcd66ad4187f2f1629f8d9665cb73363644a1d3859f29cb52d)
 7. Enjoy ^_____^
+8. If any errors are encountered then refer to troubleshooting.txt or create an (issue)[https://github.com/DoofenCorp/Speak-to-VLC/issues]
 
 # OR Setup via Source (All platforms):
 
