@@ -87,7 +87,7 @@ Current latest release: v1.0
 5. Double-click to run `SpeakToVLC.exe`. [VirusTotal scan results](https://www.virustotal.com/gui/file/3baf9a360ed1fd9df34fff83f138855d9399aea00cffb4640beb797ae15348c6)
 ![Windows2](Instructions/Windows5.png)
 6. Enjoy ^_____^
-7. If any errors are encountered then refer to troubleshooting.txt or create an (issue)[https://github.com/DoofenCorp/Speak-to-VLC/issues]
+7. If any errors are encountered then refer to troubleshooting.txt or create an [issue](https://github.com/DoofenCorp/Speak-to-VLC/issues)
 
 ### Linux:
 1. Put the `Setup` and `SpeakToVLC` files in your movies directory for easy access to run them while watching movies.
@@ -102,7 +102,7 @@ Current latest release: v1.0
 5. Play your favorite movie in VLC
 6. Type `./SpeakToVLC` in the terminal and press <kbd>Enter</kbd>. [VirusTotal scan results](https://www.virustotal.com/gui/file/174ed1610501cafcd66ad4187f2f1629f8d9665cb73363644a1d3859f29cb52d)
 7. Enjoy ^_____^
-8. If any errors are encountered then refer to troubleshooting.txt or create an (issue)[https://github.com/DoofenCorp/Speak-to-VLC/issues]
+8. If any errors are encountered then refer to troubleshooting.txt or create an [issue](https://github.com/DoofenCorp/Speak-to-VLC/issues)
 
 # OR Setup via Source (All platforms):
 
