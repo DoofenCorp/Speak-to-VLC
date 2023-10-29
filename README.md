@@ -1,4 +1,4 @@
-# Changes in release v1.0 (27 October 2023):
+# Changes in release v1.0 (29 October 2023):
 * EXEs created for Windows and executables for Linux in the Executables folder
 
 ### Current Features:
