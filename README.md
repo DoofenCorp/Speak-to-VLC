@@ -122,7 +122,7 @@ ALSA lib pcm.c:2666:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
 
 ### 1. Install all requirements:
 
-1. Install Python >= 3.8 and < 3.12 if not already installed. **IMPORTANT:** Choose to install pip along with the installation.
+1. Install Python >= 3.8 and < 3.12 if not already installed. **IMPORTANT:** Choose to install pip along with the installation. Do not use Python 3.12 because the requirements will not build on that version due to updated semantics of Python.
 1. * **Windows:** Double click to run `req.bat`
    * **Linux/MacOS:** Open terminal in current directory and type `chmod u+x req.sh` then `./req.sh` to install all requirements from requirements.txt 
 * Note: Run the `req.bat` as Administrator on Windows if you have Python installed in `C:\Program Files\`. Similarly, try `sudo` mode for *nix/MacOS
