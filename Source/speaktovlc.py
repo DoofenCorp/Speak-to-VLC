@@ -16,7 +16,7 @@ async def connection():
                 configuration = json.loads(config.read())
                 # Telnet host, port and password with noise preference
                 host, port, noise, key, token = configuration["host"],configuration["port"],configuration["noise"],configuration['key'].encode("utf-8"), configuration['token'].encode("utf-8")
-                noise = True if noise == "true" else False
+                noise = True if noise else False
             except json.JSONDecodeError as JDE:
                 logger.error(JDE)
                 return 0
